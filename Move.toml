@@ -1,0 +1,30 @@
+[package]
+name = "inbox"
+version = "0.0.0"
+authors = ["Ian Macalinao <ian@aptos.is>"]
+license = "Apache-2.0"
+
+[readme]
+title = "Inbox by Aptos.is"
+
+[addresses]
+inbox_deployer = "0x9cb1dbb8ebfaf55412bdf8259f67be908b2c928fdd9a1c9e94c1434dfc363c79"
+inbox = "0xf79945b8d98af4d50f1d9c84a27362d032e48c2c17a3f24e3c81cf4a2a0e06c0"
+
+[dependencies.MoveStdlib]
+git = "https://github.com/aptos-labs/aptos-core.git"
+subdir = "aptos-move/framework/move-stdlib"
+rev = "7296f138e11113fab6a1e193fc3f18fa7d08bd3e"
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+subdir = "aptos-move/framework/aptos-framework"
+rev = "7296f138e11113fab6a1e193fc3f18fa7d08bd3e"
+
+[dependencies.deployer]
+git = "https://github.com/DeployDAO/aptos-deployer.git"
+rev = "84246683a0cbe9892805c3933e69cc7891bb5f38"
+
+[dev-dependencies.aptest]
+git = "https://github.com/aptosis/aptest.git"
+rev = "57538a9d15f8a5aa5a8b718b6fec8f8d1e602acd"

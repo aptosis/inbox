@@ -1,0 +1,22 @@
+name: Nix environment
+
+on:
+  push:
+    paths:
+      - "*.nix"
+      - flake.lock
+
+jobs:
+  check:
+    name: Check Nix environment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cachix/install-nix-action@v17
+      - uses: cachix/cachix-action@v10
+        with:
+          name: aptos
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          extraPullNames: m
+      - run: nix flake check -v --show-trace --no-update-lock-file
+      - run: nix develop -c echo success
