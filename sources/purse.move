@@ -3,7 +3,7 @@
 module inbox::purse {
     use aptos_framework::coin::{Self, Coin};
     use aptos_framework::coins;
-    use inbox::inbox::get_inbox_signer;
+    use inbox::inbox::{get_inbox_signer, get_or_create_inbox_address};
     use std::signer;
 
     /// Deposits coins into an inbox.
@@ -22,6 +22,16 @@ module inbox::purse {
             &get_inbox_signer(signer::address_of(account)),
             amount,
         )
+    }
+
+    /// Gets the balance of the purse associated with `account`.
+    public fun balance<CoinType>(account: address): u64 {
+        let inbox_addr = get_or_create_inbox_address(account);
+        if (!coin::is_account_registered<CoinType>(inbox_addr)) {
+            0
+        } else {
+            coin::balance<CoinType>(inbox_addr)
+        }
     }
 
     /// Sends coins to the given recipient.
