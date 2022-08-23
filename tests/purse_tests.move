@@ -39,6 +39,7 @@ module inbox::purse_tests {
 
         acct::create(&framework, &recipient, 0);
         purse::withdraw_to_self<AptosCoin>(&recipient, 100);
+        check::eq(purse::balance<AptosCoin>(recipient_addr), 0);
         check::eq(coin::balance<AptosCoin>(recipient_addr), 100);
     }
 }
