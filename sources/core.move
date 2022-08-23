@@ -1,4 +1,4 @@
-module inbox::inbox_signer {
+module inbox::core {
     use std::error;
     use std::signer;
     use aptos_framework::account::{Self, SignerCapability};
@@ -41,7 +41,7 @@ module inbox::inbox_signer {
     }
 
     /// Creates the `inbox` signer.
-    public(friend) fun create(): signer acquires SelfResources {
+    public(friend) fun create_core_signer(): signer acquires SelfResources {
         let store = borrow_global<SelfResources>(@inbox);
         account::create_signer_with_capability(&store.signer_cap)
     }
