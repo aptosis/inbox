@@ -24,6 +24,16 @@ module inbox::purse {
         )
     }
 
+    /// Sends coins to the given recipient.
+    /// WARNING: if the recipient address does not exist, coins can be lost forever!
+    /// It is highly recommended to use `offers` instead, which supports revocable coin transfers.
+    public entry fun unsafe_send<CoinType>(from: &signer, to: address, amount: u64) {
+        deposit(
+            to,
+            coin::withdraw<CoinType>(from, amount),
+        );
+    }
+
     /// Withdraws coins to one's account.
     public entry fun withdraw_to_self<CoinType>(account: &signer, amount: u64) {
         coin::deposit(
