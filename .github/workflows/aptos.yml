@@ -31,10 +31,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-packages-
 
-      - run: af-cli build
-      - run: af-cli test --coverage
-      - run: af-cli coverage summary --summarize-functions
-      - continue-on-error: true
-        run: |
-          find build/*/bytecode_modules -maxdepth 1 -type f -iname "*.mv" -execdir basename '{}' .mv ';' \
-            | xargs -n 1 af-cli coverage source --module;
+      - run: aptos move compile
+      - run: aptos move test

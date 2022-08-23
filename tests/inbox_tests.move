@@ -11,7 +11,6 @@ module inbox::inbox_tests {
     use aptest::check;
 
     #[test(
-        resources = @core_resources,
         framework = @aptos_framework,
         inbox_deployer = @inbox_deployer,
         sender = @0xa11ce,
@@ -19,17 +18,16 @@ module inbox::inbox_tests {
     )]
     /// Test sending coins and initializing an account
     public entry fun test_accept(
-        resources: signer,
         framework: signer,
         inbox_deployer: signer,
         sender: signer,
         recipient: signer,
     ) {
-        aptest::setup(&resources, &framework);
+        aptest::setup(&framework);
         inbox_signer::initialize_for_testing(&inbox_deployer);
 
-        acct::create(&resources, &sender, 1000);
-        acct::create(&resources, &recipient, 1000);
+        acct::create(&framework, &sender, 1000);
+        acct::create(&framework, &recipient, 1000);
 
         timestamp::set_time_has_started_for_testing(&framework);
 
@@ -50,17 +48,16 @@ module inbox::inbox_tests {
     )]
     /// Test sending coins and initializing an account
     public entry fun test_cancel(
-        resources: signer,
         framework: signer,
         inbox_deployer: signer,
         sender: signer,
         recipient: signer,
     ) {
-        aptest::setup(&resources, &framework);
+        aptest::setup(&framework);
         inbox_signer::initialize_for_testing(&inbox_deployer);
 
-        acct::create(&resources, &sender, 1000);
-        acct::create(&resources, &recipient, 1000);
+        acct::create(&framework, &sender, 1000);
+        acct::create(&framework, &recipient, 1000);
 
         timestamp::set_time_has_started_for_testing(&framework);
 
