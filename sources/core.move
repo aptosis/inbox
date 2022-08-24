@@ -40,6 +40,15 @@ module inbox::core {
         });
     }
 
+    #[test]
+    entry fun test_inbox_address() {
+        use aptest::check;
+        check::eq(
+            @inbox,
+            deployer::create_resource_account_address(@inbox_deployer, b"inbox"),
+        );
+    }
+
     /// Creates the `inbox` signer.
     public(friend) fun create_core_signer(): signer acquires SelfResources {
         let store = borrow_global<SelfResources>(@inbox);

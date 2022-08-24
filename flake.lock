@@ -36,11 +36,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1661280317,
-        "narHash": "sha256-0uQhaJY6Nz73lDZ8An6YHfpbUAN4H0CNfzfST5Jx304=",
+        "lastModified": 1661286514,
+        "narHash": "sha256-s3uoBEmK+APLFWE6HL9jJ19WL9EiRHeTfBVb5ssxC1E=",
         "owner": "movingco",
         "repo": "move.nix",
-        "rev": "656ba5d492a525cb30612be304516e45c1f2c3b0",
+        "rev": "0c0ea4dd15d7abd1faab940ce5b5454e6bf03d43",
         "type": "github"
       },
       "original": {

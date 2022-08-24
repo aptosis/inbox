@@ -13,4 +13,4 @@ inbox = "0xf79945b8d98af4d50f1d9c84a27362d032e48c2c17a3f24e3c81cf4a2a0e06c0"
 
 [dependencies.deployer]
 git = "https://github.com/DeployDAO/aptos-deployer.git"
-rev = "03eb53be2d1e25d516767581641981f18157a151"
+rev = "2382309279ab1d25e4fd05fcc4836534bdb68e5c"

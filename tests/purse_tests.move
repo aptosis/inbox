@@ -1,3 +1,4 @@
+#[test_only]
 /// Tests for `inbox::purse`.
 module inbox::purse_tests {
     use std::signer;
