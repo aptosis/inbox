@@ -1,0 +1,8 @@
+[package]
+name = "inbox"
+version = "0.0.0"
+authors = ["Ian Macalinao <ian@aptos.is>"]
+license = "Apache-2.0"
+
+[readme]
+title = "Inbox by Aptos.is"

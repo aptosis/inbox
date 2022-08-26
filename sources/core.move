@@ -16,9 +16,9 @@ module inbox::core {
         signer_cap: SignerCapability,
     }
 
-    /// Initializes the protocol with this module being its own signer.
-    public entry fun initialize(self: &signer) {
-        let signer_cap = deployer::retrieve_resource_account_cap(self);
+    /// Initializes the protocol with the deployer.
+    public entry fun initialize(deployer: &signer) {
+        let signer_cap = deployer::retrieve_resource_account_cap(deployer);
         initialize_internal(signer_cap);
     }
 

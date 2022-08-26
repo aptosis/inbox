@@ -4,13 +4,10 @@ version = "0.0.0"
 authors = ["Ian Macalinao <ian@aptos.is>"]
 license = "Apache-2.0"
 
-[readme]
-title = "Inbox by Aptos.is"
-
 [addresses]
-inbox_deployer = "0x9cb1dbb8ebfaf55412bdf8259f67be908b2c928fdd9a1c9e94c1434dfc363c79"
-inbox = "0xf79945b8d98af4d50f1d9c84a27362d032e48c2c17a3f24e3c81cf4a2a0e06c0"
+inbox_deployer = "0xa004d6e63aa08f558011449bc90da2b27849896c0c4c68bce431fa7f1c76f65c"
+inbox = "0x65339935e1d70beb4777fe81e94f04559fb2088d9a7e66b22168e0d4cfb9f33c"
 
 [dependencies.deployer]
 git = "https://github.com/DeployDAO/aptos-deployer.git"
-rev = "77059a572658305938708cf61e1a610b8a65c4a2"
+rev = "1e53ca7c7f1d2538f9f7a1a697e5832e79b68cc5"
