@@ -2,7 +2,6 @@
 /// This does not require the recipient to accept incoming coins.
 module inbox::purse {
     use aptos_framework::coin::{Self, Coin};
-    use aptos_framework::coins;
     use inbox::inbox::{get_inbox_signer, get_or_create_inbox_address};
     use std::signer;
 
@@ -11,7 +10,7 @@ module inbox::purse {
         let inbox_signer = &get_inbox_signer(recipient);
         let inbox_addr = signer::address_of(inbox_signer);
         if (!coin::is_account_registered<CoinType>(inbox_addr)) {
-            coins::register<CoinType>(inbox_signer);
+            coin::register<CoinType>(inbox_signer);
         };
         coin::deposit(inbox_addr, input);
     }
